@@ -10,6 +10,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@near-wallet-selector/core": "^8.10.2",
+    "@near-wallet-selector/meteor-wallet": "^8.10.2",
+    "@near-wallet-selector/modal-ui": "^8.10.2",
     "near-api-js": "^5.1.1"
   },
   "devDependencies": {
