@@ -14,6 +14,7 @@
     "buffer": "^5.5.0||^6.0.0",
     "parcel": "^2.14.0",
     "process": "^0.11.10",
+    "svgo": "^3",
     "util": "^0.12.3"
   },
   "packageManager": "pnpm@10.8.1"
