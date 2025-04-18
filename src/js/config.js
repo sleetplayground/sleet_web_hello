@@ -11,8 +11,8 @@ const nearBlocksPerNetwork = {
 };
 
 const rpcPerNetwork = {
-  mainnet: 'https://test.rpc.fastnear.com',
-  testnet: 'https://free.rpc.fastnear.com',
+  mainnet: 'https://free.rpc.fastnear.com',
+  testnet: 'https://test.rpc.fastnear.com',
 };
 
 
