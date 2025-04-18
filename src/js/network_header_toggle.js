@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!header) return; // Avoid errors if the header isn't found
 
   updateHeaderText();
+
+  // Listen for the custom event to update the header
+  document.addEventListener('networkChanged', updateHeaderText);
 });
 
 export function updateHeaderText() {

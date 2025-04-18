@@ -1,5 +1,4 @@
 import { getCurrentNetworkId } from './config.js';
-import { updateHeaderText } from './network_header_toggle.js'; // Import the update function
 
 document.addEventListener('DOMContentLoaded', initNetworkToggle);
 
@@ -28,5 +27,7 @@ function toggleNetwork() {
 
   console.log(`Network switched to: ${currentNetworkId}`);
 
-  updateHeaderText(); // Call the function to update the header text
+  // Dispatch a custom event to update the header
+  document.dispatchEvent(new CustomEvent('networkChanged'));
+  
 }
