@@ -58,7 +58,7 @@ article {
   position: fixed;
   top: 10px;
   left: 10px;
-  background-color: #2196F3; /* Example background color */
+  background-color: var(--light-text); /* Use light theme color */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -68,5 +68,13 @@ article {
 }
 
 #network_toggle_button:hover {
-  background-color: #1976D2; /* Darker shade on hover */
+  opacity: 0.8;
+}
+
+@media (prefers-color-scheme: dark) {
+  #network_toggle_button {
+    background-color: var(--dark-text); /* Use dark theme color */
+    color: black;
+  }
+
 }
