@@ -86,16 +86,19 @@ button:hover {
 
 /* greeting_update */
 #greeting_update {
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid var(--light-text);
   border-radius: 20px;
   padding: 20px;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #new_greeting_input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 10px;
   border: 1px solid var(--light-text);
   border-radius: 5px;
   font-family: 'Ubuntu', sans-serif;
@@ -108,4 +111,37 @@ button:hover {
 #new_greeting_input:focus {
   border-color: var(--dark-text);
   outline: none;
+}
+
+#update_greeting_button {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--light-text);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#update_greeting_button:hover {
+  opacity: 0.8;
+}
+
+@media (prefers-color-scheme: dark) {
+  #greeting_update {
+    border: 1px solid var(--dark-text);
+  }
+
+  #new_greeting_input {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+
+  #update_greeting_button {
+    background-color: var(--dark-text);
+    color: black;
+  }
 }
