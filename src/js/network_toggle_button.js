@@ -1,19 +1,25 @@
+document.addEventListener('DOMContentLoaded', initNetworkToggle);
 
-document.addEventListener('DOMContentLoaded', () => {
+function initNetworkToggle() {
   const button = document.getElementById('network_toggle_button');
 
-  // Retrieve the current network ID from localStorage
+  if (!button) return; // Avoid errors if the button isn't found
+
   let currentNetworkId = localStorage.getItem('networkId') || 'testnet';
 
-  // Set initial button text
   button.textContent = currentNetworkId.toUpperCase();
 
-  button.addEventListener('click', () => {
-    // Toggle network ID
-    currentNetworkId = currentNetworkId === 'mainnet' ? 'testnet' : 'mainnet';
-    localStorage.setItem('networkId', currentNetworkId);
+  button.addEventListener('click', toggleNetwork);
+}
 
-    // Update button text
+function toggleNetwork() {
+  let currentNetworkId = localStorage.getItem('networkId') || 'testnet';
+
+  currentNetworkId = currentNetworkId === 'mainnet' ? 'testnet' : 'mainnet';
+  localStorage.setItem('networkId', currentNetworkId);
+
+  const button = document.getElementById('network_toggle_button');
+  if (button) {
     button.textContent = currentNetworkId.toUpperCase();
-  });
-});
+  }
+}
