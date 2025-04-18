@@ -23,3 +23,6 @@ export const NetworkId = networkId;
 export const HelloContract = contractPerNetwork[NetworkId];
 export const NearBlocksUrl = nearBlocksPerNetwork[NetworkId];
 export const NearRpc = rpcPerNetwork[NetworkId];
+
+// Export these objects for use in other modules
+export { contractPerNetwork, rpcPerNetwork };
