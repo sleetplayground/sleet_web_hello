@@ -21,8 +21,8 @@ async function getGreeting() {
     });
 
     const data = await response.json();
-    
-    // Extract greeting value (NEAR RPC returns base64 encoded response)
+    console.log("Full response:", data); // Debugging
+
     if (data.result && data.result.result) {
         const greeting = new TextDecoder().decode(new Uint8Array(data.result.result));
         document.getElementById("current_greeting").textContent = greeting;
