@@ -24,4 +24,7 @@ function toggleNetwork() {
   if (button) {
     button.textContent = currentNetworkId.toUpperCase();
   }
+
+  // Log the current network ID to the console
+  console.log(`Network switched to: ${currentNetworkId}`);
 }
