@@ -1,11 +1,9 @@
-import { contractPerNetwork, rpcPerNetwork } from "./config.js";
+import { getHelloContract, getNearRpc } from "./config.js";
 
 // Function to fetch the greeting from the contract
 async function getGreeting() {
-    // Retrieve the current network ID from localStorage
-    const currentNetworkId = localStorage.getItem('networkId') || 'testnet';
-    const NearRpc = rpcPerNetwork[currentNetworkId];
-    const HelloContract = contractPerNetwork[currentNetworkId];
+    const NearRpc = getNearRpc();
+    const HelloContract = getHelloContract();
 
     const response = await fetch(NearRpc, {
         method: "POST",

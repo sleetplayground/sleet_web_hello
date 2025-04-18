@@ -3,8 +3,6 @@ const contractPerNetwork = {
   testnet: 'hello.sleet.testnet',
 };
 
-
-// /address/ for adreess or /txns/ for transactions
 const nearBlocksPerNetwork = {
   mainnet: 'https://nearblocks.io',
   testnet: 'https://testnet.nearblocks.io',
@@ -15,14 +13,23 @@ const rpcPerNetwork = {
   testnet: 'https://test.rpc.fastnear.com',
 };
 
+// Function to get the current network ID from localStorage
+export function getCurrentNetworkId() {
+  return localStorage.getItem('networkId') || 'testnet';
+}
 
+// Functions to get the current configuration based on the network ID
+export function getHelloContract() {
+  const networkId = getCurrentNetworkId();
+  return contractPerNetwork[networkId];
+}
 
-const networkId = localStorage.getItem('networkId') || 'testnet';
+export function getNearBlocksUrl() {
+  const networkId = getCurrentNetworkId();
+  return nearBlocksPerNetwork[networkId];
+}
 
-export const NetworkId = networkId;
-export const HelloContract = contractPerNetwork[NetworkId];
-export const NearBlocksUrl = nearBlocksPerNetwork[NetworkId];
-export const NearRpc = rpcPerNetwork[NetworkId];
-
-// Export these objects for use in other modules
-export { contractPerNetwork, rpcPerNetwork };
+export function getNearRpc() {
+  const networkId = getCurrentNetworkId();
+  return rpcPerNetwork[networkId];
+}

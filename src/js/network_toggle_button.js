@@ -1,3 +1,5 @@
+import { getCurrentNetworkId } from './config.js';
+
 document.addEventListener('DOMContentLoaded', initNetworkToggle);
 
 function initNetworkToggle() {
@@ -5,7 +7,7 @@ function initNetworkToggle() {
 
   if (!button) return; // Avoid errors if the button isn't found
 
-  let currentNetworkId = localStorage.getItem('networkId') || 'testnet';
+  let currentNetworkId = getCurrentNetworkId();
 
   button.textContent = currentNetworkId.toUpperCase();
 
@@ -13,7 +15,7 @@ function initNetworkToggle() {
 }
 
 function toggleNetwork() {
-  let currentNetworkId = localStorage.getItem('networkId') || 'testnet';
+  let currentNetworkId = getCurrentNetworkId();
 
   currentNetworkId = currentNetworkId === 'mainnet' ? 'testnet' : 'mainnet';
   localStorage.setItem('networkId', currentNetworkId);
