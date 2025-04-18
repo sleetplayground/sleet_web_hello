@@ -16,11 +16,21 @@ body {
   background-color: var(--light-bg);
   color: var(--light-text);
   min-height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  transition: background-color 0.3s, color 0.3s;
+}
+
+article {
+  display: flex;
+  flex-direction: column; /* Ensures content stacks vertically */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
 }
 
 @media (prefers-color-scheme: dark) {
