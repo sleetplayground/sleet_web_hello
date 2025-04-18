@@ -10,5 +10,6 @@
   "dependencies": {},
   "devDependencies": {
     "parcel": "^2.14.0"
-  }
+  },
+  "packageManager": "pnpm@10.8.1"
 }

@@ -1,0 +1,31 @@
+
+@font-face {
+  font-family: 'Offside';
+  src: url('./Offside-Regular.ttf') format('truetype');
+}
+
+:root {
+  --dark-bg: #313638;
+  --dark-text: #d9dbf1;
+  --light-bg: #f9f9ed;
+  --light-text: #7d84b2;
+}
+
+body {
+  font-family: 'Offside', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+  }
+}
