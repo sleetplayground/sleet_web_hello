@@ -1,3 +1,7 @@
+# mac
+.DS_Store
+
+# dev
 .parcel-cache/
 dist/
 node_modules/

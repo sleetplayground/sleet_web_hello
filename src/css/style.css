@@ -4,6 +4,11 @@
   src: url('./Offside-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./Ubuntu-Regular.ttf') format('truetype');
+}
+
 :root {
   --dark-bg: #313638;
   --dark-text: #d9dbf1;
@@ -12,7 +17,7 @@
 }
 
 body {
-  font-family: 'Offside', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   background-color: var(--light-bg);
   color: var(--light-text);
   min-height: 100vh;
@@ -21,6 +26,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Offside', sans-serif;
 }
 
 article {
