@@ -80,3 +80,32 @@ button:hover {
   top: 10px;
   right: 10px;
 }
+
+
+
+
+/* greeting_update */
+#greeting_update {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+
+#new_greeting_input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid var(--light-text);
+  border-radius: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: var(--light-text);
+  background-color: var(--light-bg);
+  transition: border-color 0.3s;
+}
+
+#new_greeting_input:focus {
+  border-color: var(--dark-text);
+  outline: none;
+}
