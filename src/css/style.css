@@ -48,3 +48,25 @@ article {
       color: var(--dark-text);
   }
 }
+
+
+
+
+/* near network and login */
+
+#network_toggle_button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #2196F3; /* Example background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#network_toggle_button:hover {
+  background-color: #1976D2; /* Darker shade on hover */
+}
