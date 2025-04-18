@@ -52,12 +52,8 @@ article {
 
 
 
-/* near network and login */
-
-#network_toggle_button {
-  position: fixed;
-  top: 10px;
-  left: 10px;
+/* button */
+button {
   background-color: var(--light-text); /* Use light theme color */
   color: white;
   border: none;
@@ -67,14 +63,23 @@ article {
   transition: background-color 0.3s;
 }
 
-#network_toggle_button:hover {
+button:hover {
   opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {
-  #network_toggle_button {
+  button {
     background-color: var(--dark-text); /* Use dark theme color */
     color: black;
   }
 
+}
+
+
+/* near network and login */
+
+#network_toggle_button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }

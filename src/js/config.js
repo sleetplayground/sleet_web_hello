@@ -10,6 +10,11 @@ const nearBlocksPerNetwork = {
   testnet: 'https://testnet.nearblocks.io',
 };
 
+const rpcPerNetwork = {
+  mainnet: 'https://test.rpc.fastnear.com"',
+  testnet: 'https://free.rpc.fastnear.com"',
+};
+
 
 
 const networkId = localStorage.getItem('networkId') || 'testnet';
@@ -17,3 +22,4 @@ const networkId = localStorage.getItem('networkId') || 'testnet';
 export const NetworkId = networkId;
 export const HelloContract = contractPerNetwork[NetworkId];
 export const NearBlocksUrl = nearBlocksPerNetwork[NetworkId];
+export const NearRpc = rpcPerNetwork[NetworkId];
