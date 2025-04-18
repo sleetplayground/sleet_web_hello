@@ -10,6 +10,11 @@ pnpm build
 ```
 
 
+### What can you do
+/ todo
+- [x] get the greeting form the contract
+- [ ] update the greeting
+
 ---
 
 
