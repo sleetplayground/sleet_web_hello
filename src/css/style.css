@@ -75,3 +75,8 @@ button:hover {
   top: 10px;
   left: 10px;
 }
+#near_login_button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
