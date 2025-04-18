@@ -17,6 +17,9 @@ importers:
       '@near-wallet-selector/modal-ui':
         specifier: ^8.10.2
         version: 8.10.2(near-api-js@5.1.1)
+      '@near-wallet-selector/my-near-wallet':
+        specifier: ^8.10.2
+        version: 8.10.2
       near-api-js:
         specifier: ^5.1.1
         version: 5.1.1
@@ -229,6 +232,14 @@ packages:
 
   '@near-wallet-selector/modal-ui@8.10.2':
     resolution: {integrity: sha512-J8mg89RdK3qFshBzTNumYtt2c/M1uL1lXWBgM0Je69ENjDFezrPh+t3nuFs/DvJXEavb/rNtV/pmPMrwAzMOTw==}
+
+  '@near-wallet-selector/my-near-wallet@8.10.2':
+    resolution: {integrity: sha512-XfeduFKd2957REKo3YNpS8zcUkKSgGVE9DYFNBcumvONLx+INhRh9lFdfhxXC1eobDTacbHGKspBmxCMqLN6cA==}
+
+  '@near-wallet-selector/wallet-utils@8.10.2':
+    resolution: {integrity: sha512-B+mQBpkQ0PwDsxLw+tiju3u5cDFxKCQntTl9G1oTkKpDUiUmOZfzlKYM0s549WicNUqIVvCLQyicMhgIfLunQw==}
+    peerDependencies:
+      near-api-js: ^4.0.0 || ^5.0.0
 
   '@noble/curves@1.2.0':
     resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
@@ -2093,6 +2104,19 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - near-api-js
+
+  '@near-wallet-selector/my-near-wallet@8.10.2':
+    dependencies:
+      '@near-wallet-selector/core': 8.10.2(near-api-js@4.0.3)
+      '@near-wallet-selector/wallet-utils': 8.10.2(near-api-js@4.0.3)
+      near-api-js: 4.0.3
+    transitivePeerDependencies:
+      - encoding
+
+  '@near-wallet-selector/wallet-utils@8.10.2(near-api-js@4.0.3)':
+    dependencies:
+      '@near-wallet-selector/core': 8.10.2(near-api-js@4.0.3)
+      near-api-js: 4.0.3
 
   '@noble/curves@1.2.0':
     dependencies:
