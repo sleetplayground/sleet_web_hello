@@ -3,17 +3,18 @@
 
 
 ### DEV
-
+I use a mixture of vite and parcel for this project.
 ```sh
 pnpm start
 pnpm build
 ```
 
 
+
 ### What can you do
 / todo
 - [x] get the greeting form the contract
-- [ ] update the greeting
+- [X] update the greeting
 
 ---
 
