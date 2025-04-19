@@ -12,7 +12,9 @@ const METEOR_WALLET_ID = "meteor-wallet";
 // Initialize wallet selector
 async function initWalletSelector() {
   try {
+    console.log('Initializing wallet selector...');
     const networkId = getCurrentNetworkId();
+    console.log('Current network ID:', networkId);
     if (!networkId) {
       throw new Error('Network ID not found');
     }
@@ -23,14 +25,18 @@ async function initWalletSelector() {
       defaultWalletId: METEOR_WALLET_ID,
       autoConnect: true
     });
+    console.log('Wallet selector setup complete');
 
     modal = setupModal(selector, {
       onComplete: async () => {
         try {
+          console.log('Modal complete callback triggered');
           const wallet = await selector.wallet();
           const accounts = await wallet.getAccounts();
           accountId = accounts[0]?.accountId;
+          console.log('Account ID after login:', accountId);
           if (accountId) {
+            console.log('Updating UI after successful login');
             updateLoginButton();
             updateNetworkToggleState();
             modal.hide();
@@ -41,6 +47,7 @@ async function initWalletSelector() {
         }
       },
       onHide: () => {
+        console.log('Modal hidden');
         updateLoginButton();
       }
     });
@@ -48,20 +55,24 @@ async function initWalletSelector() {
     // Get existing accountId if already signed in
     const wallet = await selector.wallet(METEOR_WALLET_ID);
     accountId = (await wallet.getAccounts())[0]?.accountId;
+    console.log('Initial account ID:', accountId);
     updateLoginButton();
 
     // Subscribe to changes
     selector.on("accountsChanged", (e) => {
+      console.log('Accounts changed event:', e);
       accountId = e.accounts[0]?.accountId;
       updateLoginButton();
       updateNetworkToggleState();
     });
 
     selector.on("signedIn", () => {
+      console.log('Signed in event triggered');
       updateLoginButton();
       updateNetworkToggleState();
     });
     selector.on("signedOut", () => {
+      console.log('Signed out event triggered');
       accountId = null;
       updateLoginButton();
       updateNetworkToggleState();
@@ -71,7 +82,6 @@ async function initWalletSelector() {
     updateNetworkToggleState();
   } catch (err) {
     console.error('Failed to initialize wallet selector:', err);
-    // Ensure the login button is in the correct state even if initialization fails
     updateLoginButton();
   }
 }
@@ -79,7 +89,11 @@ async function initWalletSelector() {
 // Update login button text based on connection status
 function updateLoginButton() {
   const loginButton = document.getElementById('near_login_button');
-  if (!loginButton) return;
+  if (!loginButton) {
+    console.log('Login button not found');
+    return;
+  }
+  console.log('Updating login button text. Account ID:', accountId);
   loginButton.textContent = accountId ? `${accountId}` : 'LOGIN';
 }
 
@@ -87,21 +101,23 @@ function updateLoginButton() {
 function updateNetworkToggleState() {
   const networkToggleButton = document.getElementById('network_toggle_button');
   if (networkToggleButton) {
+    console.log('Updating network toggle state. Is logged in:', !!accountId);
     networkToggleButton.disabled = !!accountId;
   }
 }
 
 // Handle login/logout
 async function handleWalletConnection() {
+  console.log('Handle wallet connection clicked. Current account ID:', accountId);
   if (accountId) {
-    // User is signed in, so sign out
+    console.log('Signing out...');
     const wallet = await selector.wallet();
     await wallet.signOut();
     accountId = null;
     updateNetworkToggleState();
     updateLoginButton();
   } else {
-    // User needs to sign in - don't update button until after successful login
+    console.log('Opening login modal...');
     modal.show();
   }
 }
