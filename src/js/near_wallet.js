@@ -148,8 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
           accountId = null;
           updateLoginButton();
         }
-        // Properly dispose of the existing selector
-        await selector.disconnect();
       } catch (err) {
         console.error('Error cleaning up wallet selector:', err);
       }
