@@ -5,8 +5,9 @@
 ### DEV
 I use a mixture of vite and parcel for this project.
 ```sh
-pnpm start
-pnpm build
+pnpm start # for parcel
+pnpm dev # for vite
+pnpm build # with vite
 ```
 
 
