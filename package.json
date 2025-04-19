@@ -5,8 +5,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
-    "dev": "parcel",
+    "build": "vite build",
+    "dev": "vite",
     "clean": "rimraf dist"
   },
   "dependencies": {
@@ -28,8 +28,9 @@
     "vm-browserify": "^1.1.2"
   },
   "devDependencies": {
+    "parcel": "^2.14.0",
     "rimraf": "^6.0.1",
-    "parcel": "^2.14.0"
+    "vite": "^6.3.2"
   },
   "packageManager": "pnpm@10.8.1"
 }
