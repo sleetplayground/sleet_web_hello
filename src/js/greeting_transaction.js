@@ -28,8 +28,8 @@ async function updateGreeting(message) {
             actions: [{
                 type: 'FunctionCall',
                 params: {
-                    methodName: 'add_message',
-                    args: { text: message },
+                    methodName: 'set_greeting',
+                    args: { greeting: message },
                     gas: '30000000000000', // 30 TGas
                     deposit: '0',  // No deposit needed for this call
                 }
@@ -47,7 +47,7 @@ async function updateGreeting(message) {
 // Initialize greeting functionality
 function initGreetingTransaction() {
     const updateButton = document.getElementById('update_greeting_button');
-    const messageInput = document.getElementById('message_input');
+    const messageInput = document.getElementById('new_greeting_input');
 
     if (!updateButton || !messageInput) {
         console.log('Greeting elements not found');
