@@ -30,4 +30,6 @@ function toggleNetwork() {
   // Dispatch a custom event to update the header
   document.dispatchEvent(new CustomEvent('networkChanged'));
   
+  // Reload the page to ensure proper wallet initialization
+  window.location.reload();
 }
