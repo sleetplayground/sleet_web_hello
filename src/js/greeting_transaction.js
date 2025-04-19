@@ -1,4 +1,4 @@
-import { selector } from './near_wallet';
+import { selector } from './near_wallet.js';
 import { getCurrentNetworkId, getHelloContract } from './config';
 
 // Get contract name from config

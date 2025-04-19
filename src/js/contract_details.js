@@ -1,4 +1,4 @@
-import { getCurrentNetworkId, getHelloContract } from './config.js';
+import { getCurrentNetworkId, getHelloContract } from './config';
 
 function getExplorerUrl(networkId, path) {
     return `https://${networkId === 'mainnet' ? '' : networkId + '.'}explorer.near.org${path}`;
