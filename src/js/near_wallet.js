@@ -20,7 +20,8 @@ async function initWalletSelector() {
     selector = await setupWalletSelector({
       network: networkId,
       modules: [setupMeteorWallet()],
-      defaultWalletId: METEOR_WALLET_ID
+      defaultWalletId: METEOR_WALLET_ID,
+      autoConnect: true
     });
 
     modal = setupModal(selector, {
@@ -45,7 +46,7 @@ async function initWalletSelector() {
     });
 
     // Get existing accountId if already signed in
-    const wallet = await selector.wallet();
+    const wallet = await selector.wallet(METEOR_WALLET_ID);
     accountId = (await wallet.getAccounts())[0]?.accountId;
     updateLoginButton();
 
@@ -53,10 +54,18 @@ async function initWalletSelector() {
     selector.on("accountsChanged", (e) => {
       accountId = e.accounts[0]?.accountId;
       updateLoginButton();
+      updateNetworkToggleState();
     });
 
-    selector.on("signedIn", updateLoginButton);
-    selector.on("signedOut", updateLoginButton);
+    selector.on("signedIn", () => {
+      updateLoginButton();
+      updateNetworkToggleState();
+    });
+    selector.on("signedOut", () => {
+      accountId = null;
+      updateLoginButton();
+      updateNetworkToggleState();
+    });
 
     // Disable network toggle when logged in
     updateNetworkToggleState();
