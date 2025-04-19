@@ -66,8 +66,12 @@ async function initWalletSelector() {
       updateNetworkToggleState();
     });
 
-    selector.on("signedIn", () => {
+    selector.on("signedIn", async () => {
       console.log('Signed in event triggered');
+      const wallet = await selector.wallet();
+      const accounts = await wallet.getAccounts();
+      accountId = accounts[0]?.accountId;
+      console.log('Account ID after sign in:', accountId);
       updateLoginButton();
       updateNetworkToggleState();
     });
