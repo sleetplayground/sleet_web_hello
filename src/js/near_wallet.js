@@ -2,6 +2,7 @@ import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import { setupMeteorWallet } from "@near-wallet-selector/meteor-wallet";
+import { getCurrentNetworkId } from './config';
 import "@near-wallet-selector/modal-ui/styles.css"
 
 // Initialize the wallet selector
@@ -13,18 +14,25 @@ let accountId;
 async function initWalletSelector() {
   try {
     selector = await setupWalletSelector({
-      network: "testnet",
+      network: getCurrentNetworkId(),
       modules: [setupMyNearWallet(), setupMeteorWallet()],
     });
 
-    modal = setupModal(selector, {
-      contractId: "hello.sleet.near",
-    });
+    modal = setupModal(selector, {});
 
     // Get existing accountId if already signed in
     const wallet = await selector.wallet();
     accountId = (await wallet.getAccounts())[0]?.accountId;
     updateLoginButton();
+
+    // Subscribe to changes
+    selector.on("accountsChanged", (e) => {
+      accountId = e.accounts[0]?.accountId;
+      updateLoginButton();
+    });
+
+    // Disable network toggle when logged in
+    updateNetworkToggleState();
   } catch (err) {
     console.error('Failed to initialize wallet selector:', err);
   }
@@ -35,7 +43,15 @@ function updateLoginButton() {
   const loginButton = document.getElementById('near_login_button');
   if (!loginButton) return;
   
-  loginButton.textContent = accountId ? 'DISCONNECT' : 'LOGIN';
+  loginButton.textContent = accountId ? `${accountId}` : 'LOGIN';
+}
+
+// Update network toggle button state
+function updateNetworkToggleState() {
+  const networkToggleButton = document.getElementById('network_toggle_button');
+  if (networkToggleButton) {
+    networkToggleButton.disabled = !!accountId;
+  }
 }
 
 // Handle login/logout
@@ -45,6 +61,7 @@ async function handleWalletConnection() {
     const wallet = await selector.wallet();
     await wallet.signOut();
     accountId = null;
+    updateNetworkToggleState();
   } else {
     // User needs to sign in
     modal.show();
