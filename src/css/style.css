@@ -85,7 +85,7 @@ button:hover {
 
 
 /* greeting_update */
-#greeting_update, #greeting_tx_details, #greeting_display {
+#greeting_update, #greeting_tx_details, #greeting_display, #greeting_contract_details {
   border: 1px solid var(--light-text);
   border-radius: 20px;
   padding: 20px;
@@ -150,6 +150,38 @@ button:hover {
 
 
 
+
+#greeting_contract_details {
+  text-align: center;
+}
+
+#greeting_contract_details a {
+  color: var(--light-text);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+#greeting_contract_details a:hover {
+  opacity: 0.8;
+}
+
+.tx-history-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid var(--light-text);
+  border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #greeting_contract_details a {
+    color: var(--dark-text);
+  }
+  
+  .tx-history-link {
+    border-color: var(--dark-text);
+  }
+}
 
 #footer {
   margin-top: 150px;
