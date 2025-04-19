@@ -1,7 +1,8 @@
-import { getCurrentNetworkId, getHelloContract } from './config';
+import { getCurrentNetworkId, getHelloContract, getNearBlocksUrl } from './config';
 
-function getExplorerUrl(networkId, path) {
-    return `https://${networkId === 'mainnet' ? '' : networkId + '.'}explorer.near.org${path}`;
+function getNearBlocksPath(path) {
+    const baseUrl = getNearBlocksUrl();
+    return `${baseUrl}${path}`;
 }
 
 async function updateContractDetails() {
@@ -15,15 +16,15 @@ async function updateContractDetails() {
     
     const contractAddress = document.createElement('p');
     const contractLink = document.createElement('a');
-    contractLink.href = getExplorerUrl(networkId, `/accounts/${contractId}`);
+    contractLink.href = getNearBlocksPath(`/address/${contractId}`);
     contractLink.textContent = contractId;
     contractLink.target = '_blank';
     contractAddress.appendChild(document.createTextNode('Contract Address: '));
     contractAddress.appendChild(contractLink);
     
     const txHistoryLink = document.createElement('a');
-    txHistoryLink.href = getExplorerUrl(networkId, `/accounts/${contractId}/transactions`);
-    txHistoryLink.textContent = 'View Transaction History';
+    txHistoryLink.href = getNearBlocksPath(`/address/${contractId}`);
+    txHistoryLink.textContent = 'View Transaction History on NearBlocks';
     txHistoryLink.target = '_blank';
     txHistoryLink.className = 'tx-history-link';
     

@@ -3,6 +3,7 @@ const contractPerNetwork = {
   testnet: 'hello.sleet.testnet',
 };
 
+// /address/ 
 const nearBlocksPerNetwork = {
   mainnet: 'https://nearblocks.io',
   testnet: 'https://testnet.nearblocks.io',
