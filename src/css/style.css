@@ -85,7 +85,7 @@ button:hover {
 
 
 /* greeting_update */
-#greeting_update {
+#greeting_update, #greeting_tx_details, #greeting_display {
   border: 1px solid var(--light-text);
   border-radius: 20px;
   padding: 20px;
@@ -146,4 +146,11 @@ button:hover {
     background-color: var(--dark-text);
     color: black;
   }
+}
+
+
+
+
+#footer {
+  margin-top: 150px;
 }
