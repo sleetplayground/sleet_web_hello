@@ -5,3 +5,4 @@
 .parcel-cache/
 dist/
 node_modules/
+bun.lockb

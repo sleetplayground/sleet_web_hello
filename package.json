@@ -17,6 +17,7 @@
     "near-api-js": "^5.1.1"
   },
   "devDependencies": {
+    "@parcel/optimizer-terser": "^2.14.4",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.1",
     "events": "^3.3.0",
