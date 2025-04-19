@@ -137,12 +137,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Listen for network changes
-  document.addEventListener('networkChanged', () => {
+  document.addEventListener('networkChanged', async () => {
     console.log('Network changed, reinitializing wallet selector...');
-    if (accountId) {
-      // Sign out when network changes while logged in
-      handleWalletConnection();
+    if (selector) {
+      try {
+        // Clean up existing wallet connection
+        if (accountId) {
+          const wallet = await selector.wallet();
+          await wallet.signOut();
+          accountId = null;
+          updateLoginButton();
+        }
+        // Properly dispose of the existing selector
+        await selector.disconnect();
+      } catch (err) {
+        console.error('Error cleaning up wallet selector:', err);
+      }
     }
+    // Initialize with new network configuration
     initWalletSelector();
   });
 });
