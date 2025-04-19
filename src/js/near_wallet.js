@@ -13,12 +13,33 @@ let accountId;
 // Initialize wallet selector
 async function initWalletSelector() {
   try {
+    console.log('Initializing wallet selector...');
     selector = await setupWalletSelector({
       network: getCurrentNetworkId(),
       modules: [setupMyNearWallet(), setupMeteorWallet()],
     });
 
-    modal = setupModal(selector, {});
+    modal = setupModal(selector, {
+      onComplete: async () => {
+        console.log('Modal complete - getting wallet...');
+        try {
+          const wallet = await selector.wallet();
+          accountId = (await wallet.getAccounts())[0]?.accountId;
+          console.log('Account ID after login:', accountId);
+          updateLoginButton();
+          updateNetworkToggleState();
+          console.log('Hiding modal after successful login...');
+          modal.hide();
+        } catch (err) {
+          console.error('Error during wallet connection:', err);
+        }
+      },
+      onHide: () => {
+        console.log('Modal hide event triggered');
+        console.log('Modal hidden - updating button...');
+        updateLoginButton();
+      }
+    });
 
     // Get existing accountId if already signed in
     const wallet = await selector.wallet();
@@ -27,7 +48,19 @@ async function initWalletSelector() {
 
     // Subscribe to changes
     selector.on("accountsChanged", (e) => {
+      console.log('Accounts changed event:', e);
       accountId = e.accounts[0]?.accountId;
+      updateLoginButton();
+    });
+
+    // Additional event listeners for wallet state changes
+    selector.on("signedIn", () => {
+      console.log('User signed in event triggered');
+      updateLoginButton();
+    });
+
+    selector.on("signedOut", () => {
+      console.log('User signed out event triggered');
       updateLoginButton();
     });
 
@@ -41,8 +74,12 @@ async function initWalletSelector() {
 // Update login button text based on connection status
 function updateLoginButton() {
   const loginButton = document.getElementById('near_login_button');
-  if (!loginButton) return;
+  if (!loginButton) {
+    console.warn('Login button not found in DOM');
+    return;
+  }
   
+  console.log('Updating login button with account:', accountId);
   loginButton.textContent = accountId ? `${accountId}` : 'LOGIN';
 }
 
@@ -62,11 +99,11 @@ async function handleWalletConnection() {
     await wallet.signOut();
     accountId = null;
     updateNetworkToggleState();
+    updateLoginButton();
   } else {
-    // User needs to sign in
+    // User needs to sign in - don't update button until after successful login
     modal.show();
   }
-  updateLoginButton();
 }
 
 // Initialize wallet selector when the page loads
