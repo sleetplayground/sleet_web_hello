@@ -135,6 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (loginButton) {
     loginButton.addEventListener('click', handleWalletConnection);
   }
+
+  // Listen for network changes
+  document.addEventListener('networkChanged', () => {
+    console.log('Network changed, reinitializing wallet selector...');
+    if (accountId) {
+      // Sign out when network changes while logged in
+      handleWalletConnection();
+    }
+    initWalletSelector();
+  });
 });
 
 // Export wallet selector instance for other modules
