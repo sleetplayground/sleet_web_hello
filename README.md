@@ -5,9 +5,15 @@
 ### DEV
 I use a mixture of vite and parcel for this project.
 ```sh
+pnpm i
 pnpm start # for parcel
 pnpm dev # for vite
 pnpm build # with vite
+
+# web4 deploy
+NEAR_SIGNER_KEY=ed25519:your_key_here
+pnpm run web4_testnet
+pnpm run web4_mainnet
 ```
 
 

@@ -7,7 +7,9 @@
     "start": "parcel",
     "build": "vite build",
     "dev": "vite",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "web4_testnet": "web4-deploy src sleethello.testnet --nearfs",
+    "web4_mainnet": "web4-deploy src sleethello.near --nearfs"
   },
   "dependencies": {
     "@near-wallet-selector/core": "^8.10.2",
@@ -30,7 +32,8 @@
   "devDependencies": {
     "parcel": "^2.14.0",
     "rimraf": "^6.0.1",
-    "vite": "^6.3.2"
+    "vite": "^6.3.2",
+    "web4-deploy": "^0.8.0"
   },
   "packageManager": "pnpm@10.8.1"
 }
