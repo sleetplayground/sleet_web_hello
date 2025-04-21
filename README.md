@@ -9,6 +9,7 @@ pnpm i
 pnpm start # for parcel
 pnpm dev # for vite
 pnpm build # with vite
+pnpm clean
 
 # web4 deploy
 NEAR_SIGNER_KEY=ed25519:your_key_here
