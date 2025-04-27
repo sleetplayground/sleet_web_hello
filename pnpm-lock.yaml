@@ -32,6 +32,9 @@ importers:
       https-browserify:
         specifier: ^1.0.0
         version: 1.0.0
+      intear-wallet:
+        specifier: ^8.10.3
+        version: 8.10.3(encoding@0.1.13)
       near-api-js:
         specifier: ^5.1.1
         version: 5.1.1(encoding@0.1.13)
@@ -2198,6 +2201,9 @@ packages:
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+
+  intear-wallet@8.10.3:
+    resolution: {integrity: sha512-Cnw+/nJUB0GWWQrqRQx+mO3mZcXdXQ8HSkitWUQXJ5ivriCxaeCR64vR7Ha4iVbQvkzlJVTWQoOgwJs1ig6I+A==}
 
   interface-blockstore@2.0.3:
     resolution: {integrity: sha512-OwVUnlNcx7H5HloK0Myv6c/C1q9cNG11HX6afdeU6q6kbuNj8jKCwVnmJHhC94LZaJ+9hvVOk4IUstb3Esg81w==}
@@ -4500,6 +4506,11 @@ snapshots:
       '@near-wallet-selector/core': 8.10.2(near-api-js@4.0.3(encoding@0.1.13))
       near-api-js: 4.0.3(encoding@0.1.13)
 
+  '@near-wallet-selector/wallet-utils@8.10.2(near-api-js@5.1.1(encoding@0.1.13))':
+    dependencies:
+      '@near-wallet-selector/core': 8.10.2(near-api-js@5.1.1(encoding@0.1.13))
+      near-api-js: 5.1.1(encoding@0.1.13)
+
   '@noble/curves@1.2.0':
     dependencies:
       '@noble/hashes': 1.3.2
@@ -6544,6 +6555,14 @@ snapshots:
   inherits@2.0.3: {}
 
   inherits@2.0.4: {}
+
+  intear-wallet@8.10.3(encoding@0.1.13):
+    dependencies:
+      '@near-wallet-selector/core': 8.10.2(near-api-js@5.1.1(encoding@0.1.13))
+      '@near-wallet-selector/wallet-utils': 8.10.2(near-api-js@5.1.1(encoding@0.1.13))
+      near-api-js: 5.1.1(encoding@0.1.13)
+    transitivePeerDependencies:
+      - encoding
 
   interface-blockstore@2.0.3:
     dependencies:
