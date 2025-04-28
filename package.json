@@ -7,7 +7,7 @@
     "start": "parcel",
     "build": "vite build",
     "dev": "vite",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist && rm -rf .parcel-cache",
     "web4_testnet": "web4-deploy dist sleethello.testnet --nearfs",
     "web4_mainnet": "web4-deploy dist sleethello.near --nearfs"
   },
