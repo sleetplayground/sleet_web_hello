@@ -12,11 +12,10 @@
     "web4_mainnet": "web4-deploy dist sleethello.near --nearfs"
   },
   "dependencies": {
-    "@near-wallet-selector/core": "^8.10.2",
-    "@near-wallet-selector/meteor-wallet": "^8.10.2",
-    "@near-wallet-selector/modal-ui": "^8.10.2",
-    "@near-wallet-selector/my-near-wallet": "^8.10.2",
-    "@near-wallet-selector/intear-wallet": "^8.10.2",
+    "@near-wallet-selector/core": "^9.0.1",
+    "@near-wallet-selector/meteor-wallet": "^9.0.1",
+    "@near-wallet-selector/modal-ui": "^9.0.1",
+    "@near-wallet-selector/my-near-wallet": "^9.0.1",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.1",
     "events": "^3.3.0",
