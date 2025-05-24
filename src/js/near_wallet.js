@@ -1,13 +1,13 @@
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
-import { setupMeteorWallet } from "@near-wallet-selector/meteor-wallet";
+import { setupIntearWallet } from "@near-wallet-selector/intear-wallet";
 import { getCurrentNetworkId } from './config';
 import "@near-wallet-selector/modal-ui/styles.css"
 
 let selector;
 let modal;
 let accountId;
-const METEOR_WALLET_ID = "meteor-wallet";
+const METEOR_WALLET_ID = "intear-wallet";
 
 // Initialize wallet selector
 async function initWalletSelector() {
@@ -21,7 +21,7 @@ async function initWalletSelector() {
 
     selector = await setupWalletSelector({
       network: networkId,
-      modules: [setupMeteorWallet()],
+      modules: [setupIntearWallet()],
       defaultWalletId: METEOR_WALLET_ID,
       autoConnect: true
     });
