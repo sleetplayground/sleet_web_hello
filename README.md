@@ -1,6 +1,7 @@
 # sleet_web_hello
 🌐 a simple near hello web app made with html, css and js
 
+ℹ️ uses near wallet selector
 
 ### DEV
 I use a mixture of vite and parcel for this project.
